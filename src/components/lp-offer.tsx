@@ -54,7 +54,7 @@ export function LpOffer({
           className={cn(buttonVariants({ variant: "whatsapp" }), "w-full min-[860px]:w-auto")}
         >
           <WhatsappIcon className="h-4 w-4" />
-          Quero esta
+          Agendar agora
         </a>
       </div>
     </div>

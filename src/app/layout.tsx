@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Big_Shoulders, Outfit } from "next/font/google";
 import "./globals.css";
 import { SITE } from "@/lib/constants";
+import { MetaPixel } from "@/components/meta-pixel";
 
 const display = Big_Shoulders({
   subsets: ["latin"],
@@ -55,6 +56,7 @@ export default function RootLayout({
       className={`${display.variable} ${body.variable} h-full`}
     >
       <body className="flex min-h-full flex-col bg-ink text-paper">
+        <MetaPixel />
         {children}
       </body>
     </html>
