@@ -21,6 +21,15 @@ export const videos: VideoItem[] = [
     poster: "https://img.youtube.com/vi/XF5xJe313WA/maxresdefault.jpg",
   },
   {
+    id: "sergio-bolao",
+    title: "Sérgio Bolão · Jiu-Jitsu",
+    category: "Documentário",
+    type: "youtube",
+    youtubeId: "CF2OkrYiwWE",
+    orientation: "landscape",
+    poster: "https://img.youtube.com/vi/CF2OkrYiwWE/maxresdefault.jpg",
+  },
+  {
     id: "silas",
     title: "Silas · Institucional",
     category: "Institucional",

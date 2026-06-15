@@ -149,7 +149,7 @@ export default function HomePage() {
 
         <div className="container-x relative w-full py-[clamp(80px,12vw,140px)]">
           <p className="eyebrow mb-7">Produtora audiovisual · Rio de Janeiro</p>
-          <h1 className="max-w-[18ch] text-[clamp(56px,11vw,180px)] leading-[0.9]">
+          <h1 className="max-w-[18ch] text-[clamp(48px,9.5vw,150px)] leading-[0.9]">
             O seu conteúdo merece o{" "}
             <em className="not-italic text-mustard">
               nível do que você entrega.

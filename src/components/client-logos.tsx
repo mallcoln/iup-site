@@ -7,25 +7,24 @@ export function ClientLogos() {
 
   return (
     <section
-      aria-label="Clientes que já confiaram na IUP"
+      aria-label="Marcas que confiam na IUP"
       className="border-y border-line bg-ink-2/40"
     >
-      <div className="container-x py-[clamp(40px,6vw,72px)]">
-        <p className="eyebrow mb-10 text-center">
-          Marcas que já confiaram na IUP
+      <div className="py-[clamp(64px,9vw,112px)]">
+        <p className="container-x eyebrow mb-[clamp(40px,5vw,64px)] text-center">
+          Marcas que confiam na IUP
         </p>
-      </div>
 
-      <div
-        className="marquee-mask relative overflow-hidden pb-[clamp(40px,6vw,72px)]"
-        style={{
-          maskImage:
-            "linear-gradient(90deg, transparent, black 8%, black 92%, transparent)",
-          WebkitMaskImage:
-            "linear-gradient(90deg, transparent, black 8%, black 92%, transparent)",
-        }}
-      >
-        <ul className="marquee-track gap-5 px-2.5">
+        <div
+          className="marquee-mask relative overflow-hidden"
+          style={{
+            maskImage:
+              "linear-gradient(90deg, transparent, black 8%, black 92%, transparent)",
+            WebkitMaskImage:
+              "linear-gradient(90deg, transparent, black 8%, black 92%, transparent)",
+          }}
+        >
+          <ul className="marquee-track gap-9 px-4">
           {loop.map((c, i) => (
             <li key={`${c.name}-${i}`} className="shrink-0">
               <div className="group flex h-20 w-20 items-center justify-center rounded-full border border-line bg-ink/60 transition-colors duration-300 hover:border-mustard/50 min-[640px]:h-24 min-[640px]:w-24">
@@ -40,7 +39,8 @@ export function ClientLogos() {
               </div>
             </li>
           ))}
-        </ul>
+          </ul>
+        </div>
       </div>
     </section>
   );
