@@ -9,8 +9,8 @@ import { CtaBlock } from "@/components/cta-block";
 import { buttonVariants } from "@/components/ui/button";
 import { buildWhatsappLink } from "@/lib/whatsapp";
 import { CONTACT } from "@/lib/constants";
-import { portfolio } from "@/data/portfolio";
-import { ICPS } from "@/data/portfolio";
+import { VideoGallery } from "@/components/video-gallery";
+import { videos } from "@/data/videos";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -109,6 +109,24 @@ export default function HomePage() {
     <>
       {/* ===== HERO ===== */}
       <section className="relative flex min-h-[88vh] items-center overflow-hidden">
+        {/* Vídeo de fundo (drone, mudo, em loop) */}
+        <video
+          aria-hidden
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/videos/drone-iup.jpg"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-40"
+        >
+          <source src="/videos/drone-hero.mp4" type="video/mp4" />
+        </video>
+        {/* Overlay escuro para legibilidade do texto */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-ink/70"
+        />
         {/* Glow radial mustard */}
         <div
           aria-hidden
@@ -235,33 +253,12 @@ export default function HomePage() {
         <SectionHead
           eyebrow="Trabalhos"
           title="Portfólio"
-          description="Uma amostra do acervo, organizada por segmento."
+          description="Uma amostra das produções da casa — clipes, institucionais e eventos."
           ctaLabel="Ver todos os projetos"
           ctaHref="/portfolio"
         />
-        <div className="mt-14 grid grid-cols-1 gap-5 min-[520px]:grid-cols-2 min-[900px]:grid-cols-3">
-          {portfolio.slice(0, 6).map((item) => {
-            const label =
-              ICPS.find((i) => i.slug === item.icp)?.label ?? item.icp;
-            return (
-              <article
-                key={item.id}
-                className="group relative aspect-[4/5] overflow-hidden border border-line bg-gradient-to-br from-ink-3 to-ink-2"
-              >
-                <div className="absolute inset-0 flex items-center justify-center p-6">
-                  <span className="text-center text-xs uppercase tracking-[0.2em] text-paper-mute">
-                    {item.title}
-                  </span>
-                </div>
-                <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-ink/90 via-ink/20 to-transparent p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <span className="eyebrow mb-2">{label}</span>
-                  <span className="font-display text-lg uppercase leading-tight text-paper">
-                    {item.title}
-                  </span>
-                </div>
-              </article>
-            );
-          })}
+        <div className="mt-14">
+          <VideoGallery items={videos.slice(0, 3)} />
         </div>
       </section>
 

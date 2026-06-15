@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { PortfolioGrid } from "@/components/portfolio-grid";
+import { VideoGallery } from "@/components/video-gallery";
 import { CtaBlock } from "@/components/cta-block";
-import { portfolio } from "@/data/portfolio";
+import { videos } from "@/data/videos";
 
 export const metadata: Metadata = {
   title: "Portfólio",
   description:
-    "Trabalhos da IUP organizados por segmento: saúde, estética, profissionais liberais, comércio, eventos e casamentos.",
+    "Produções audiovisuais da IUP: clipes, institucionais, cobertura de eventos e captação aérea no Rio de Janeiro.",
 };
 
 export default function PortfolioPage() {
@@ -21,8 +21,8 @@ export default function PortfolioPage() {
           <em className="not-italic text-mustard">da casa.</em>
         </h1>
         <p className="lead mt-8">
-          Trabalhos organizados por segmento. Use os filtros para encontrar
-          referências mais próximas do seu mercado.
+          Uma seleção de produções reais — clipes, institucionais, cobertura de
+          eventos e captação aérea. Clique para assistir.
         </p>
       </section>
 
@@ -30,13 +30,9 @@ export default function PortfolioPage() {
         <div className="divider" />
       </div>
 
-      {/* Grid filtrável */}
+      {/* Galeria de vídeos */}
       <section className="container-x section-y">
-        <PortfolioGrid items={portfolio} />
-        <p className="mt-10 max-w-[70ch] text-xs leading-relaxed text-paper-mute">
-          Acervo em organização. Os blocos acima são placeholders — em breve,
-          cases reais por segmento.
-        </p>
+        <VideoGallery items={videos} />
       </section>
 
       {/* CTA */}
@@ -46,7 +42,7 @@ export default function PortfolioPage() {
           <>
             Posso enviar
             <br />
-            cases por DM.
+            mais cases por DM.
           </>
         }
         description="Se você quer ver referências específicas do seu segmento — saúde, estética, profissionais liberais ou comércio — me chama no WhatsApp."
