@@ -9,8 +9,10 @@ import { CtaBlock } from "@/components/cta-block";
 import { buttonVariants } from "@/components/ui/button";
 import { buildWhatsappLink } from "@/lib/whatsapp";
 import { CONTACT } from "@/lib/constants";
-import { VideoGallery } from "@/components/video-gallery";
+import { VideoShowcase } from "@/components/video-showcase";
 import { videos } from "@/data/videos";
+
+const videoById = (id: string) => videos.find((v) => v.id === id)!;
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -258,7 +260,15 @@ export default function HomePage() {
           ctaHref="/portfolio"
         />
         <div className="mt-14">
-          <VideoGallery items={videos.slice(0, 3)} />
+          <VideoShowcase
+            left={[
+              videoById("jp-marcal"),
+              videoById("sergio-bolao"),
+              videoById("enel"),
+            ]}
+            feature={videoById("rock-festival")}
+            secondary={videoById("drone")}
+          />
         </div>
       </section>
 
