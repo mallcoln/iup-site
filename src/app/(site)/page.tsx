@@ -67,11 +67,11 @@ const SERVICES = [
 ];
 
 const BASTIDORES = [
-  { src: "/fotos/bastidores-1.jpg", alt: "Operador da IUP filmando em set" },
+  { src: "/fotos/locacao-2.jpg", alt: "Locação à beira-mar com olhar de cinema" },
   { src: "/fotos/evento-palco.jpg", alt: "Cobertura de evento — apresentação no palco" },
   { src: "/fotos/evento-estadio.jpg", alt: "Cobertura de evento em estádio" },
   { src: "/fotos/evento-danca.jpg", alt: "Cobertura de evento — performance de dança" },
-  { src: "/fotos/bastidores-4.jpg", alt: "Equipe da IUP revisando captação em set" },
+  { src: "/fotos/retrato-2.jpg", alt: "Retrato editorial produzido pela IUP" },
   { src: "/fotos/locacao-1.jpg", alt: "Locação à beira-mar trabalhada pela IUP" },
   { src: "/fotos/bastidores-2.jpg", alt: "Câmera em mãos durante captação da IUP" },
   { src: "/fotos/retrato-1.jpg", alt: "Retrato editorial produzido pela IUP" },

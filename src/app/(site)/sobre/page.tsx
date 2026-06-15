@@ -95,8 +95,8 @@ export default function SobrePage() {
             </h2>
             <div className="relative mt-8 hidden aspect-[5/4] overflow-hidden border border-line min-[860px]:block">
               <Image
-                src="/fotos/bastidores-2.jpg"
-                alt="Equipe da IUP em set de gravação"
+                src="/fotos/evento-2.jpg"
+                alt="Cobertura de evento produzida pela IUP"
                 fill
                 sizes="50vw"
                 className="object-cover"
