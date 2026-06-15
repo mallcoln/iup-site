@@ -14,7 +14,7 @@ import { ICPS } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "IUP — Produtora de Conteúdo Audiovisual no Rio de Janeiro",
+  title: { absolute: "IUP — Produtora de Conteúdo Audiovisual no Rio de Janeiro" },
   description:
     "Captação, edição e direção para quem trata o próprio negócio com seriedade. Diárias, retainers e cobertura de eventos no Rio de Janeiro.",
 };
