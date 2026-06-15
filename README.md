@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# IUP — Site & Landing Page
 
-## Getting Started
+Site institucional + landing page de Google Ads da **IUP**, produtora de conteúdo
+audiovisual no Rio de Janeiro. Todos os CTAs convertem para o WhatsApp.
 
-First, run the development server:
+## Stack
+
+- **Next.js 15** (App Router) + **TypeScript** (strict)
+- **Tailwind CSS v3** + tokens custom (dark + mustard)
+- Fontes: **Big Shoulders** (display) + **Outfit** (body) via `next/font/google`
+- Ícones: **lucide-react** (+ ícone WhatsApp custom)
+- Botão no estilo **shadcn/ui** (`class-variance-authority`)
+- Deploy: **Vercel** (região `gru1` / São Paulo)
+
+> Node ≥ 20. O projeto usa **npm** (o briefing previa pnpm, mas pnpm não estava
+> disponível no ambiente; o fallback para npm é autorizado).
+
+## Desenvolvimento
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # build de produção
+npm run start    # serve o build
+npm run lint     # ESLint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Rotas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Rota             | Descrição                                              |
+|------------------|--------------------------------------------------------|
+| `/`              | Home — reposicionamento "Produtora. Não agência."      |
+| `/sobre`         | Sobre, nichos prioritários, princípios                 |
+| `/servicos`      | Diárias, retainers, eventos, projetos especiais, FAQ   |
+| `/portfolio`     | Grid filtrável por segmento (placeholders por ora)     |
+| `/contato`       | Canais oficiais + atalho WhatsApp                      |
+| `/produtora-rj`  | **Landing Page Google Ads** — sem menu, `noindex`      |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+A LP `/produtora-rj` tem layout próprio (sem Header/Footer global) e é
+`noindex,nofollow` — bloqueada também em `robots.txt`. As rotas institucionais
+vivem no route group `(site)`, que aplica Header/Footer/FAB.
 
-## Learn More
+## Estrutura
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/
+│   ├── layout.tsx              # root: fontes, metadata global, <html>/<body>
+│   ├── globals.css             # Tailwind + tokens + utilitários
+│   ├── not-found.tsx           # 404
+│   ├── robots.ts, sitemap.ts   # SEO (LP excluída)
+│   ├── (site)/                 # site institucional (Header/Footer/FAB)
+│   │   ├── layout.tsx
+│   │   ├── page.tsx            # Home
+│   │   ├── sobre/ servicos/ portfolio/ contato/
+│   └── produtora-rj/           # LP (layout próprio, noindex)
+├── components/                 # Header, Footer, cards, FAQ, grid, LP, etc.
+├── data/                       # services, portfolio, faq (tipados)
+└── lib/                        # constants, whatsapp(), cn()
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Conteúdo
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Logos** reais em `public/` (`logo-amarela`, `-off-white`, `-preta`, `-cinza`).
+- **Portfólio**: placeholders por segmento até existirem cases reais. Trocar os
+  blocos por `next/image` em `src/data/portfolio.ts` (campo `image`) e ajustar
+  `PortfolioGrid`.
+- **og-image.jpg** e ícones gerados a partir da logo amarela sobre fundo `#181818`.
 
-## Deploy on Vercel
+## Deploy na Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Subir o repositório no GitHub.
+2. Importar em https://vercel.com/new (preset **Next.js**, auto-detect).
+3. `vercel.json` já define build/install (npm), região `gru1` e security headers.
+4. Domínio: adicionar `agenciaiup.com.br` e `www.` em Settings → Domains.
+5. Pós-deploy: instalar **Google Tag Manager** em `layout.tsx` e criar conversão
+   "WhatsApp Click" (clique em `href*="wa.me"`) para importar no Google Ads.
+6. Apontar a campanha de Google Ads para `/produtora-rj`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Nenhuma variável de ambiente é necessária na v1 (constantes em
+`src/lib/constants.ts`).

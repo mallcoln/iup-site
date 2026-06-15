@@ -1,0 +1,21 @@
+{
+  "name": "IUP — Produtora de Conteúdo Audiovisual",
+  "short_name": "IUP",
+  "description": "Produtora de conteúdo audiovisual no Rio de Janeiro.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#181818",
+  "theme_color": "#181818",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
