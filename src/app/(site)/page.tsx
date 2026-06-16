@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { SectionHead } from "@/components/section-head";
 import { ServiceCard } from "@/components/service-card";
 import { ClientLogos } from "@/components/client-logos";
+import { Credibility } from "@/components/credibility";
 import { CtaBlock } from "@/components/cta-block";
 import { buttonVariants } from "@/components/ui/button";
 import { buildWhatsappLink } from "@/lib/whatsapp";
@@ -194,6 +195,9 @@ export default function HomePage() {
 
       {/* ===== CLIENTES ===== */}
       <ClientLogos />
+
+      {/* ===== CREDIBILIDADE ===== */}
+      <Credibility />
 
       {/* ===== INTRO ===== */}
       <section className="container-x section-y-tight">

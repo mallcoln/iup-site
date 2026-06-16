@@ -5,6 +5,7 @@ import { LpBar } from "@/components/lp-bar";
 import { LpOffer } from "@/components/lp-offer";
 import { Faq } from "@/components/faq";
 import { CtaBlock } from "@/components/cta-block";
+import { Credibility } from "@/components/credibility";
 import { buttonVariants } from "@/components/ui/button";
 import { WhatsappIcon } from "@/components/whatsapp-icon";
 import { buildWhatsappLink } from "@/lib/whatsapp";
@@ -14,7 +15,7 @@ import { faqLp } from "@/data/faq";
 const TRUST = [
   { value: "7+", label: "Anos no mercado" },
   { value: "100+", label: "Projetos entregues" },
-  { value: "22d", label: "Prazo médio" },
+  { value: "10d", label: "Prazo médio" },
   { value: "RJ", label: "Equipe local" },
 ];
 
@@ -242,6 +243,9 @@ export default function ProdutoraRjPage() {
       </section>
 
       <Divider />
+
+      {/* Credibilidade */}
+      <Credibility />
 
       {/* FAQ */}
       <section className="container-x section-y">
