@@ -1,5 +1,8 @@
 import { Star, ShieldCheck, Scale, Clock } from "lucide-react";
 
+// Link para o perfil/avaliações no Google Meu Negócio "Grupo IUP - Marketing"
+const GOOGLE_REVIEWS_URL = "https://share.google/KDfLIwUBVzRXuclVP";
+
 function Stars() {
   return (
     <span className="flex items-center gap-0.5" aria-hidden>
@@ -15,6 +18,7 @@ type Item = {
   value: string;
   label: string;
   top?: React.ReactNode;
+  href?: string;
 };
 
 const ITEMS: Item[] = [
@@ -22,7 +26,8 @@ const ITEMS: Item[] = [
     icon: <Star className="h-5 w-5" />,
     top: <Stars />,
     value: "5,0",
-    label: "25 avaliações no Google",
+    label: "23 avaliações no Google",
+    href: GOOGLE_REVIEWS_URL,
   },
   {
     icon: <ShieldCheck className="h-5 w-5" />,
@@ -41,6 +46,20 @@ const ITEMS: Item[] = [
   },
 ];
 
+function ItemContent({ item }: { item: Item }) {
+  return (
+    <>
+      <span className="mb-4 text-mustard">{item.top ?? item.icon}</span>
+      <span className="font-display text-[clamp(40px,5vw,60px)] font-bold leading-none text-paper">
+        {item.value}
+      </span>
+      <span className="mt-3 max-w-[22ch] text-sm leading-snug text-paper-dim">
+        {item.label}
+      </span>
+    </>
+  );
+}
+
 export function Credibility() {
   return (
     <section
@@ -56,15 +75,26 @@ export function Credibility() {
           {ITEMS.map((item, i) => (
             <li
               key={i}
-              className="flex flex-col items-center text-center min-[900px]:border-l min-[900px]:border-line min-[900px]:first:border-l-0"
+              className="min-[900px]:border-l min-[900px]:border-line min-[900px]:first:border-l-0"
             >
-              <span className="mb-4 text-mustard">{item.top ?? item.icon}</span>
-              <span className="font-display text-[clamp(40px,5vw,60px)] font-bold leading-none text-paper">
-                {item.value}
-              </span>
-              <span className="mt-3 max-w-[22ch] text-sm leading-snug text-paper-dim">
-                {item.label}
-              </span>
+              {item.href ? (
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener"
+                  className="flex flex-col items-center text-center transition-opacity hover:opacity-80"
+                  aria-label="Ver avaliações da IUP no Google"
+                >
+                  <ItemContent item={item} />
+                  <span className="mt-2 text-[0.7rem] uppercase tracking-[0.16em] text-mustard">
+                    Ver no Google →
+                  </span>
+                </a>
+              ) : (
+                <div className="flex flex-col items-center text-center">
+                  <ItemContent item={item} />
+                </div>
+              )}
             </li>
           ))}
         </ul>

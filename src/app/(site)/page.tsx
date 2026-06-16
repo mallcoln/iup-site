@@ -6,6 +6,7 @@ import { SectionHead } from "@/components/section-head";
 import { ServiceCard } from "@/components/service-card";
 import { ClientLogos } from "@/components/client-logos";
 import { Credibility } from "@/components/credibility";
+import { Depoimentos } from "@/components/depoimentos";
 import { CtaBlock } from "@/components/cta-block";
 import { buttonVariants } from "@/components/ui/button";
 import { buildWhatsappLink } from "@/lib/whatsapp";
@@ -328,6 +329,13 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <div className="container-x">
+        <div className="divider" />
+      </div>
+
+      {/* ===== DEPOIMENTOS ===== */}
+      <Depoimentos />
 
       <div className="container-x">
         <div className="divider" />

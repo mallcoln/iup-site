@@ -6,6 +6,7 @@ import { LpOffer } from "@/components/lp-offer";
 import { Faq } from "@/components/faq";
 import { CtaBlock } from "@/components/cta-block";
 import { Credibility } from "@/components/credibility";
+import { Depoimentos } from "@/components/depoimentos";
 import { buttonVariants } from "@/components/ui/button";
 import { WhatsappIcon } from "@/components/whatsapp-icon";
 import { buildWhatsappLink } from "@/lib/whatsapp";
@@ -246,6 +247,13 @@ export default function ProdutoraRjPage() {
 
       {/* Credibilidade */}
       <Credibility />
+
+      <Divider />
+
+      {/* Depoimentos */}
+      <Depoimentos />
+
+      <Divider />
 
       {/* FAQ */}
       <section className="container-x section-y">
