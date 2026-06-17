@@ -39,30 +39,34 @@ export function Depoimentos() {
         ctaHref={CONTACT.instagram}
       />
 
-      <ul className="mt-14 columns-1 gap-4 min-[640px]:columns-2 min-[1000px]:columns-3 [&>li]:mb-4">
+      <ul className="mt-14 columns-1 gap-5 min-[700px]:columns-2 [&>li]:mb-5">
         {depoimentos.map((d) => (
           <li
             key={d.handle}
-            className="break-inside-avoid rounded-md border border-line bg-ink-2 p-6"
+            className="break-inside-avoid rounded-lg border border-line bg-ink-2 p-7 transition-colors duration-300 hover:border-mustard/40 min-[700px]:p-9"
           >
-            <div className="flex items-center gap-3">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-ink-3 font-display text-lg font-bold uppercase text-mustard ring-1 ring-mustard/30">
-                {d.handle.charAt(0)}
-              </span>
-              <span className="flex items-center gap-1.5 font-sans text-sm font-semibold text-paper">
-                @{d.handle}
-                <InstagramGlyph className="h-3.5 w-3.5 text-paper-mute" />
-              </span>
-            </div>
+            <span
+              aria-hidden
+              className="block font-display text-5xl leading-[0.6] text-mustard"
+            >
+              &ldquo;
+            </span>
 
-            <p className="mt-4 text-[0.95rem] leading-relaxed text-paper-dim">
+            <p className="mt-3 text-[clamp(17px,1.5vw,21px)] font-medium leading-relaxed text-paper">
               {d.text}
             </p>
 
-            <div className="mt-4 flex items-center gap-1.5 text-paper-mute">
-              <Heart className="h-4 w-4 fill-[#ed4956] text-[#ed4956]" />
-              <span className="text-xs">
-                {d.likes} {d.likes === 1 ? "curtida" : "curtidas"}
+            <div className="mt-6 flex items-center gap-3 border-t border-line pt-5">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-ink-3 font-display text-base font-bold uppercase text-mustard ring-1 ring-mustard/30">
+                {d.handle.charAt(0)}
+              </span>
+              <span className="flex items-center gap-1.5 font-sans text-sm font-semibold text-paper-dim">
+                @{d.handle}
+                <InstagramGlyph className="h-3.5 w-3.5 text-paper-mute" />
+              </span>
+              <span className="ml-auto flex items-center gap-1.5 text-paper-mute">
+                <Heart className="h-4 w-4 fill-[#ed4956] text-[#ed4956]" />
+                <span className="text-xs">{d.likes}</span>
               </span>
             </div>
           </li>

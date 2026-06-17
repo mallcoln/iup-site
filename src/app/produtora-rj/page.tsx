@@ -8,6 +8,7 @@ import { Faq } from "@/components/faq";
 import { CtaBlock } from "@/components/cta-block";
 import { Credibility } from "@/components/credibility";
 import { Depoimentos } from "@/components/depoimentos";
+import { InstagramVideos } from "@/components/instagram-videos";
 import { VideoShowcase } from "@/components/video-showcase";
 import { buttonVariants } from "@/components/ui/button";
 import { WhatsappIcon } from "@/components/whatsapp-icon";
@@ -17,6 +18,12 @@ import { faqLp } from "@/data/faq";
 import { videos } from "@/data/videos";
 
 const videoById = (id: string) => videos.find((v) => v.id === id)!;
+
+const DEPO_VIDEOS = [
+  "https://www.instagram.com/p/DVbLJPsDgxP/",
+  "https://www.instagram.com/p/DSWG4ngiWUt/",
+  "https://www.instagram.com/p/DMa_TXvJdPu/",
+];
 
 const LP_FOTOS = [
   { src: "/fotos/evento-palco.jpg", alt: "Cobertura de evento — apresentação no palco" },
@@ -307,6 +314,26 @@ export default function ProdutoraRjPage() {
 
       {/* Credibilidade */}
       <Credibility />
+
+      <Divider />
+
+      {/* Depoimentos em vídeo */}
+      <section className="container-x section-y">
+        <SectionHead
+          eyebrow="Depoimentos em vídeo"
+          title={
+            <>
+              Ouça de quem
+              <br />
+              já viveu.
+            </>
+          }
+          description="Clientes contando, na frente da câmera, como foi trabalhar com a IUP."
+        />
+        <div className="mt-14">
+          <InstagramVideos urls={DEPO_VIDEOS} />
+        </div>
+      </section>
 
       <Divider />
 
