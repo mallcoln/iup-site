@@ -32,7 +32,10 @@ export function PlanCard({ plan }: PlanCardProps) {
 
       <h3 className="relative text-[clamp(24px,2.6vw,32px)]">{name}</h3>
 
-      <div className="relative mt-4 flex items-baseline gap-1.5">
+      <span className="relative mt-4 block text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-paper-mute">
+        A partir de
+      </span>
+      <div className="relative mt-1 flex items-baseline gap-1.5">
         <span
           className={cn(
             "font-display text-[clamp(40px,5vw,56px)] font-bold leading-none",

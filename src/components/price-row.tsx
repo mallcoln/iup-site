@@ -13,9 +13,14 @@ export function PriceRow({ item }: PriceRowProps) {
           {item.description}
         </p>
       </div>
-      <span className="shrink-0 font-display text-[clamp(28px,3.2vw,38px)] font-bold leading-none text-mustard">
-        {item.price}
-      </span>
+      <div className="shrink-0 min-[760px]:text-right">
+        <span className="block text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-paper-mute">
+          A partir de
+        </span>
+        <span className="mt-1 block font-display text-[clamp(28px,3.2vw,38px)] font-bold leading-none text-mustard">
+          {item.price}
+        </span>
+      </div>
     </div>
   );
 }

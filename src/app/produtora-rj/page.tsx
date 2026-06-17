@@ -26,10 +26,26 @@ const DEPO_VIDEOS = [
 ];
 
 const LP_FOTOS = [
-  { src: "/fotos/evento-palco.jpg", alt: "Cobertura de evento — apresentação no palco" },
-  { src: "/fotos/evento-estadio.jpg", alt: "Cobertura de evento em estádio" },
-  { src: "/fotos/evento-danca.jpg", alt: "Cobertura de evento — performance" },
-  { src: "/fotos/locacao-1.jpg", alt: "Locação à beira-mar trabalhada pela IUP" },
+  {
+    src: "/fotos/retrato-1.jpg",
+    nicho: "Marca pessoal",
+    alt: "Retrato editorial — marca pessoal",
+  },
+  {
+    src: "/fotos/evento-estadio.jpg",
+    nicho: "Eventos",
+    alt: "Cobertura de evento esportivo",
+  },
+  {
+    src: "/fotos/evento-palco.jpg",
+    nicho: "Música & shows",
+    alt: "Cobertura de show no palco",
+  },
+  {
+    src: "/fotos/locacao-1.jpg",
+    nicho: "Imóveis & locações",
+    alt: "Locação à beira-mar trabalhada pela IUP",
+  },
 ];
 
 const TRUST = [
@@ -208,15 +224,24 @@ export default function ProdutoraRjPage() {
           {LP_FOTOS.map((f) => (
             <div
               key={f.src}
-              className="relative aspect-[4/5] overflow-hidden border border-line"
+              className="group relative aspect-[4/5] overflow-hidden border border-line"
             >
               <Image
                 src={f.src}
                 alt={f.alt}
                 fill
                 sizes="(max-width: 900px) 50vw, 25vw"
-                className="object-cover"
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
               />
+              <span
+                aria-hidden
+                className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent"
+              />
+              <span className="absolute bottom-0 left-0 w-full p-4">
+                <span className="block font-sans text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-mustard">
+                  {f.nicho}
+                </span>
+              </span>
             </div>
           ))}
         </div>

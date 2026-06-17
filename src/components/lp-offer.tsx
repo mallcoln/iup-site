@@ -43,7 +43,10 @@ export function LpOffer({
       {/* Preço + CTA (direita) */}
       <div className="flex flex-col items-start gap-5 border-t border-line pt-7 min-[860px]:items-end min-[860px]:border-l min-[860px]:border-t-0 min-[860px]:pl-8 min-[860px]:pt-0 min-[860px]:text-right">
         <div>
-          <span className="block font-display text-[clamp(40px,5vw,56px)] font-bold leading-none text-mustard">
+          <span className="block text-[0.7rem] font-semibold uppercase tracking-[0.15em] text-paper-mute">
+            A partir de
+          </span>
+          <span className="mt-1 block font-display text-[clamp(40px,5vw,56px)] font-bold leading-none text-mustard">
             {price}
           </span>
         </div>
