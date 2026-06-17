@@ -8,6 +8,7 @@ import { Faq } from "@/components/faq";
 import { CtaBlock } from "@/components/cta-block";
 import { Credibility } from "@/components/credibility";
 import { Depoimentos } from "@/components/depoimentos";
+import { Acervo } from "@/components/acervo";
 import { InstagramVideos } from "@/components/instagram-videos";
 import { VideoShowcase } from "@/components/video-showcase";
 import { buttonVariants } from "@/components/ui/button";
@@ -334,6 +335,11 @@ export default function ProdutoraRjPage() {
           />
         </div>
       </section>
+
+      <Divider />
+
+      {/* Já passaram pela nossa lente */}
+      <Acervo />
 
       <Divider />
 
