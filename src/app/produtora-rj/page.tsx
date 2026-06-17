@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { SectionHead } from "@/components/section-head";
 import { ServiceCard } from "@/components/service-card";
 import { LpBar } from "@/components/lp-bar";
@@ -7,11 +8,22 @@ import { Faq } from "@/components/faq";
 import { CtaBlock } from "@/components/cta-block";
 import { Credibility } from "@/components/credibility";
 import { Depoimentos } from "@/components/depoimentos";
+import { VideoShowcase } from "@/components/video-showcase";
 import { buttonVariants } from "@/components/ui/button";
 import { WhatsappIcon } from "@/components/whatsapp-icon";
 import { buildWhatsappLink } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
 import { faqLp } from "@/data/faq";
+import { videos } from "@/data/videos";
+
+const videoById = (id: string) => videos.find((v) => v.id === id)!;
+
+const LP_FOTOS = [
+  { src: "/fotos/evento-palco.jpg", alt: "Cobertura de evento — apresentação no palco" },
+  { src: "/fotos/evento-estadio.jpg", alt: "Cobertura de evento em estádio" },
+  { src: "/fotos/evento-danca.jpg", alt: "Cobertura de evento — performance" },
+  { src: "/fotos/locacao-1.jpg", alt: "Locação à beira-mar trabalhada pela IUP" },
+];
 
 const TRUST = [
   { value: "7+", label: "Anos no mercado" },
@@ -183,6 +195,26 @@ export default function ProdutoraRjPage() {
         </div>
       </section>
 
+      {/* Faixa de fotos do trabalho */}
+      <section className="container-x pb-[clamp(24px,4vw,56px)]">
+        <div className="grid grid-cols-2 gap-3 min-[900px]:grid-cols-4">
+          {LP_FOTOS.map((f) => (
+            <div
+              key={f.src}
+              className="relative aspect-[4/5] overflow-hidden border border-line"
+            >
+              <Image
+                src={f.src}
+                alt={f.alt}
+                fill
+                sizes="(max-width: 900px) 50vw, 25vw"
+                className="object-cover"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
       <Divider />
 
       {/* Diárias */}
@@ -240,6 +272,34 @@ export default function ProdutoraRjPage() {
           {DIFERENCIAL.map((d) => (
             <ServiceCard key={d.num} {...d} />
           ))}
+        </div>
+      </section>
+
+      <Divider />
+
+      {/* Nosso trabalho (vídeos) */}
+      <section className="container-x section-y">
+        <SectionHead
+          eyebrow="Nosso trabalho"
+          title={
+            <>
+              Veja a IUP
+              <br />
+              em movimento.
+            </>
+          }
+          description="Clipes, institucionais, eventos e captação aérea — produções reais. Clique para assistir."
+        />
+        <div className="mt-14">
+          <VideoShowcase
+            left={[
+              videoById("jp-marcal"),
+              videoById("sergio-bolao"),
+              videoById("enel"),
+            ]}
+            feature={videoById("rock-festival")}
+            secondary={videoById("drone")}
+          />
         </div>
       </section>
 
