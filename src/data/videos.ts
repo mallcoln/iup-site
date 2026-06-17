@@ -57,6 +57,15 @@ export const videos: VideoItem[] = [
     poster: "/videos/enel-partida-do-coracao.jpg",
   },
   {
+    id: "anjos-guerreiros",
+    title: "Moto Club Anjos Guerreiros",
+    category: "Comunidade",
+    type: "file",
+    src: "/videos/anjos-guerreiros.mp4",
+    orientation: "landscape",
+    poster: "/videos/anjos-guerreiros.jpg",
+  },
+  {
     id: "drone",
     title: "Captação Aérea · Drone",
     category: "Aéreo",
