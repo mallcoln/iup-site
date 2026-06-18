@@ -58,6 +58,20 @@ const TRUST = [
 
 const DIARIAS = [
   {
+    name: "Diária Start",
+    description:
+      "Gravação de 6 vídeos reels com celular — o jeito enxuto de começar a aparecer com constância.",
+    bullets: [
+      "2 horas de captação",
+      "6 vídeos curtos editados",
+      "5 fotos editadas e tratadas",
+      "Roteiro simples",
+      "Entrega em até 3 dias úteis",
+    ],
+    price: "R$ 600",
+    ctaMessage: "Olá! Tenho interesse na Diária Start.",
+  },
+  {
     name: "Diária IUP",
     description:
       "Solução enxuta para quem precisa começar com qualidade sem ainda assumir compromisso mensal.",
